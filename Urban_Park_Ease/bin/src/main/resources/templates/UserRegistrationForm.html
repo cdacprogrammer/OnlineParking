@@ -37,129 +37,110 @@
                 alt="Sample photo" class="img-fluid"
                 style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem; height:500px; width:500px;" />
             </div>
-            
-            
             <div class="col-sm-6" >
               <div class="card-body p-md-4 text-black">
                 <h3 class="mb-3 text-uppercase">User registration form</h3>
-                 <form th:action="@{/UserRegistrationdata}" th:object="${UserRegform}" method="post">
-                <div class="row">
 
+                <div class="row">
+                
                   <div class="col-md-6 mb-2">
                     <div class="form-outline">
-                      <input type="text" id="form3Example1m" class="form-control form-control-sm" placeholder="First name" th:field ="*{firstName}"/>
+                      <input type="text" id="form3Example1m" class="form-control form-control-sm" placeholder="First name"/>
                       <!-- <label class="form-label" for="form3Example1m">First name</label> -->
                     </div>
                   </div>
                   <div class="col-md-6 mb-2">
                     <div class="form-outline">
-                      <input type="text" id="form3Example1n" class="form-control form-control-sm" placeholder="Last name" th:field ="*{lastName}" />
+                      <input type="text" id="form3Example1n" class="form-control form-control-sm" placeholder="Last name" />
                       <!-- <label class="form-label" for="form3Example1n">Last name</label> -->
                     </div>
                   </div>
                 </div>
 
-            <!--     <div class="d-md-flex justify-content-start align-items-center mb-2 py-2">
+                <div class="d-md-flex justify-content-start align-items-center mb-2 py-2">
 
                   <h6 class="mb-0 me-0">Gender: </h6>
 
                   <div class="form-check form-check-inline mb-0 me-0">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
-                      value="option1"  th:field ="*{gender}"/>
+                      value="option1" />
                     <label class="form-check-label" for="femaleGender">Female</label>
                   </div>
 
                   <div class="form-check form-check-inline mb-0 me-2">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
-                      value="option2"  th:field ="*{gender}"/>
+                      value="option2" />
                     <label class="form-check-label" for="maleGender">Male</label>
                   </div>
 
                   <div class="form-check form-check-inline mb-0">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
-                      value="option3"  th:field ="*{gender}"/>
+                      value="option3" />
                     <label class="form-check-label" for="otherGender">Other</label>
                   </div>
 
-                </div> -->
-                
-                  <div class="form-outline mb-2">
-                  <input type="text" id="form3Example97" class="form-control form-control-sm" placeholder="Gender" th:field ="*{gender}"/>
-                  <!-- <label class="form-label" for="form3Example97">Gender</label> -->
                 </div>
                 
-               
-                
                 <div class="form-outline mb-2">
-                  <input type="text" id="form3Example97" class="form-control form-control-sm" placeholder="Email ID" th:field ="*{email_Id}"/>
+                  <input type="text" id="form3Example97" class="form-control form-control-sm" placeholder="Email ID"/>
                   <!-- <label class="form-label" for="form3Example97">Email ID</label> -->
                 </div>
                 
                 <div class="form-outline mb-2">
-                  <input type="text" id="form3Example99" class="form-control form-control-sm" placeholder="Password" th:field ="*{password}"/>
+                  <input type="text" id="form3Example99" class="form-control form-control-sm" placeholder="Password"/>
                   <!-- <label class="form-label" for="form3Example99">Password</label> -->
                 </div>
 
               
 
                 <div class="form-outline mb-2">
-                  <input type="text" id="form3Example9" class="form-control form-control-sm" placeholder="DOB" th:field ="*{dob}"/>
+                  <input type="text" id="form3Example9" class="form-control form-control-sm" placeholder="DOB"/>
                   <!-- <label class="form-label" for="form3Example9">DOB</label> -->
                 </div>
 
 				<div class="form-outline mb-2">
-                  <input type="text" id="form3Example8" class="form-control form-control-sm" placeholder="Address" th:field ="*{address}"/>
+                  <input type="text" id="form3Example8" class="form-control form-control-sm" placeholder="Address"/>
                 <!--   <label class="form-label" for="form3Example8">Address</label> -->
                 </div>
                 
-                 <div class="form-outline mb-2">
-                  <input type="text" id="form3Example99" class="form-control form-control-sm" placeholder="State" th:field ="*{state}"/>
-                  <!-- <label class="form-label" for="form3Example99">State </label> -->
-                </div>
-                
-                  <div class="form-outline mb-2">
-                  <input type="text" id="form3Example99" class="form-control form-control-sm" placeholder="City" th:field ="*{city}"/>
-                  <!-- <label class="form-label" for="form3Example99">city </label> -->
-                </div>
-                
-         <!--          <div class="row">
+                  <div class="row">
                   <div class="col-md-6 mb-2">
 
-                    <select class="select" th:field ="*{state}">
-                      <option value="1" th:field ="*{state}">State</option>
-                      <option value="2" th:field ="*{state}">Option 1</option>
-                      <option value="3" th:field ="*{state}">Option 2</option>
-                      <option value="4" th:field ="*{state}">Option 3</option>
+                    <select class="select">
+                      <option value="1">State</option>
+                      <option value="2">Option 1</option>
+                      <option value="3">Option 2</option>
+                      <option value="4">Option 3</option>
                     </select>
 
                   </div>
                   <div class="col-md-6 mb-2">
 
-                    <select class="select" th:field ="*{city}">
+                    <select class="select">
                       <option value="1">City</option>
-                      <option value="2" th:field ="*{city}">Option 1</option>
-                      <option value="3" th:field ="*{city}">Option 2</option>
-                      <option value="4" th:field ="*{city}">Option 3</option>
+                      <option value="2">Option 1</option>
+                      <option value="3">Option 2</option>
+                      <option value="4">Option 3</option>
                     </select>
 
                   </div>
-                </div> -->
+                </div>
                 
                 <div class="form-outline mb-2">
-                  <input type="text" id="form3Example90" class="form-control form-control-sm" placeholder="Pincode" th:field ="*{pincode}"/>
+                  <input type="text" id="form3Example90" class="form-control form-control-sm" placeholder="Pincode"/>
                   <!-- <label class="form-label" for="form3Example90">Pincode</label> -->
                 </div>
 
                 <div class="form-outline mb-2">
-                  <input type="text" id="form3Example97" class="form-control form-control-sm" placeholder="Aadhar No." th:field ="*{aadharNumber}"/>
+                  <input type="text" id="form3Example97" class="form-control form-control-sm" placeholder="Aadhar No."/>
               <!--     <label class="form-label" for="form3Example97">Aadhar No.</label> -->
                 </div>
                 
 				
                 <div class="d-flex justify-content-end pt-3">
-                  <button type="submit" class="btn btn-warning btn-m ms-2">Submit form</button>
+                  <button type="button" class="btn btn-warning btn-m ms-2">Submit form</button>
                 </div>
-				</form>
+
               </div>
             </div>
           </div>
