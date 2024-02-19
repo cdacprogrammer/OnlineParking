@@ -33,7 +33,7 @@ public class AdminController {
    public String addAdmindatamethod(@ModelAttribute ("adminForm") AdminUser adminForm) 
    {
 	   as.saveAdminUser(adminForm);
-	   return "SuccessfulLogin";
+	   return "AdminDashBoard";
    }
 
 }
