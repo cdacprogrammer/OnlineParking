@@ -30,7 +30,7 @@ public class AddProviderController
 	public String AddProviderDatamethod(@ModelAttribute ("Aprovidrform")AddProviderModel Aproviderform ) 
 	{
 		add.saveProvider(Aproviderform);
-		return "DummyAddProvider";
+		return "Success";
 	}
 
 }
