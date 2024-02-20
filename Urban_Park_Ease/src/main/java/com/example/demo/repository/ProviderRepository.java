@@ -6,9 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.*;
 @Repository
-public interface IAddProviderRepository extends JpaRepository<AddProviderModel,String> {
+public interface ProviderRepository extends JpaRepository<ProviderModel,Long> {
 
 
-	    List<AddProviderModel> findAll();
+	    List<ProviderModel> findAll();
+	    //List<ProviderModel> findByName();
 	
 }

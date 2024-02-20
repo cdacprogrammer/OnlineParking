@@ -1,16 +1,26 @@
 package com.example.demo.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class AddProviderModel {
+public class ProviderModel {
 	@Id
+	 @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long providerId;
 	String providerName;
 	String address;
 	int slotCapacity;
 	String mobile;
 	
+	public Long getProviderId() {
+		return providerId;
+	}
+	public void setProviderId(Long providerId) {
+		this.providerId = providerId;
+	}
 	public String getProviderName() {
 		return providerName;
 	}
@@ -35,6 +45,7 @@ public class AddProviderModel {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
+	
 	
 	
 

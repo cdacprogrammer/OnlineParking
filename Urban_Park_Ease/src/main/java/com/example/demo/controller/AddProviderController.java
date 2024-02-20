@@ -7,27 +7,27 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.demo.model.AddProviderModel;
+import com.example.demo.model.ProviderModel;
 //import com.example.demo.repository.IAddProviderRepository;
-import com.example.demo.service.AddProviderService;
+import com.example.demo.service.ProviderService;
 
 @Controller
 public class AddProviderController 
 {
 	@Autowired
-	AddProviderService add;
+	ProviderService add;
 //	IAddProviderRepository add;
 	
 	@GetMapping("/addProvider")
 	public String addProvider(Model m) 
 	{
-		AddProviderModel ad= new AddProviderModel();
+		ProviderModel ad= new ProviderModel();
 		m.addAttribute("Aprovidrform",ad);
 		return "AddProviderform";
 	}
 	
 	@PostMapping("/Addproviderdata")
-	public String AddProviderDatamethod(@ModelAttribute ("Aprovidrform")AddProviderModel Aproviderform ) 
+	public String AddProviderDatamethod(@ModelAttribute ("Aprovidrform")ProviderModel Aproviderform ) 
 	{
 		add.saveProvider(Aproviderform);
 		return "Success";

@@ -32,4 +32,12 @@ public class UserRegistrationFormController
 		return "Success";
 		}
 	
+	
+		/*
+		 * @PostMapping("/UserRegistrationdata") public String
+		 * handleRegistrationFormSubmission(@ModelAttribute("UserRegform")
+		 * UserRegistrationmodel userRegform) { String gender = userRegform.getGender();
+		 * // Do something with the gender value return "Success"; }
+		 */
+	
 }
