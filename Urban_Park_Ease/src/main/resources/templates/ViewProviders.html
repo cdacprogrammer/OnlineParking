@@ -106,6 +106,7 @@ data Successful Stored!
         <table class="table">
             <thead>
                 <tr>
+                    <th>Provider Id</th>
                     <th>Provider Name</th>
                     <th>Address</th>
                     <th>Slot Capacity</th>
@@ -114,10 +115,15 @@ data Successful Stored!
             </thead>
             <tbody>
                 <tr th:each="provider : ${providers}">
+                    <td th:text="${provider.providerId}"></td>
                     <td th:text="${provider.providerName}"></td>
                     <td th:text="${provider.address}"></td>
                     <td th:text="${provider.slotCapacity}"></td>
                     <td th:text="${provider.mobile}"></td>
+                    <td>
+                        <a class="btn btn-primary">Edit</a>
+                        <a class="btn btn-danger">Delete</a>
+                    </td>
                 </tr>
             </tbody>
         </table>
