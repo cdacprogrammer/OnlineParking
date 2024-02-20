@@ -84,8 +84,10 @@ CREATE TABLE admin_user (
 select * from admin_user;
 insert into admin_user (username ,password) values ('Shubham', 'shubham123');
 drop database urbanparkease;
-
-
+drop table Provider;
+select * from user_login_modal;
+insert into user_login_modal (username ,password) values ('ShubhamHirve','Shubham@123');
+select * from user_registrationmodel;
 
 
 
