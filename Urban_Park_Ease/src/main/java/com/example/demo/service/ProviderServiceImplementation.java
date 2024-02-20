@@ -24,4 +24,10 @@ public class ProviderServiceImplementation implements  ProviderService
 	    public List<ProviderModel> getAllProviders() {
 	         return addr.findAll();
 	    }
+	 @Override
+	 public void delete(int ProviderId) {
+		 
+		  ps.deleteById(ProviderId);//calling repository method 
+	}
+	 
 }
