@@ -86,6 +86,24 @@
                   <div class="form-outline mb-2">
                   <input type="text" id="form3Example97" class="form-control form-control-sm" placeholder="Gender" th:field ="*{gender}"/>
                   <!-- <label class="form-label" for="form3Example97">Gender</label> -->
+                  
+                  
+                  <div class="form-outline mb-2">
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="gender" id="femaleGender" value="Female" th:field="*{gender}" />
+    <label class="form-check-label" for="femaleGender">Female</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="gender" id="maleGender" value="Male" th:field="*{gender}" />
+    <label class="form-check-label" for="maleGender">Male</label>
+  </div>
+  <div class="form-check form-check-inline">
+    <input class="form-check-input" type="radio" name="gender" id="otherGender" value="Other" th:field="*{gender}" />
+    <label class="form-check-label" for="otherGender">Other</label>
+  </div>
+</div>
+                  
+                  
                 </div>
                 
                
@@ -146,8 +164,8 @@
                 </div> -->
                 
                 <div class="form-outline mb-2">
-                  <input type="text" id="form3Example90" class="form-control form-control-sm" placeholder="Pincode" th:field ="*{pincode}"/>
-                  <!-- <label class="form-label" for="form3Example90">Pincode</label> -->
+                  <input type="text" id="form3Example90" class="form-control form-control-sm" placeholder="Pin:code" th:field ="*{pincode}"/>
+                  <!-- <label class="form-label" for="form3Example90">Pin code</label> -->
                 </div>
 
                 <div class="form-outline mb-2">
