@@ -72,7 +72,7 @@ data Successful Stored!
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">ManageProvider</a>
             <div class="dropdown-menu dropdown-menu-end">
                 <a th:href="@{/addProvider}" class="dropdown-item">Add Provider</a>
-                <a th:href="@{/viewProviders}" class="dropdown-item">View Provider</a>
+                <a th:href="@{/adminlogin}" class="dropdown-item">View Provider</a>
                  <a th:href="@{/adminlogin}" class="dropdown-item">Update Provider</a> 
                   <a th:href="@{/adminlogin}" class="dropdown-item">Delete Provider</a>   
             </div>
@@ -100,6 +100,28 @@ data Successful Stored!
     </div>
   </nav>
 </header>
+
+ <div class="container">
+        <h1>List of Providers</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Provider Name</th>
+                    <th>Address</th>
+                    <th>Slot Capacity</th>
+                    <th>Mobile Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="provider : ${providers}">
+                    <td th:text="${provider.providerName}"></td>
+                    <td th:text="${provider.address}"></td>
+                    <td th:text="${provider.slotCapacity}"></td>
+                    <td th:text="${provider.mobile}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </body>
 </html>
