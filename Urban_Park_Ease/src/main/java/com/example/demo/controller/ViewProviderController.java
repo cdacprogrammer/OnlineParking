@@ -7,18 +7,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import com.example.demo.model.AddProviderModel;
-import com.example.demo.service.AddProviderService;
+import com.example.demo.model.ProviderModel;
+import com.example.demo.service.ProviderService;
 
 @Controller
 public class ViewProviderController {
 	   @Autowired
-	   AddProviderService providerService;
+	   ProviderService providerService;
 
 	    @GetMapping("/viewProviders")
 	    public String getUsers(Model model) {
-        List<AddProviderModel> viewProviders = providerService.getAllProviders();
+        List<ProviderModel> viewProviders = providerService.getAllProviders();
         model.addAttribute("providers", viewProviders);
 	        return "ViewProviders";
 	    }
+	    
+	    
 }

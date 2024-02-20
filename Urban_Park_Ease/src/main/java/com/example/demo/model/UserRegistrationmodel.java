@@ -12,7 +12,7 @@ public class UserRegistrationmodel {
 	    String gender;
 	    String email_Id;
 	    String password;
-	    Date dob;
+	    Date   dob;
 	    String address;
 	    String state;
 	    String city;
