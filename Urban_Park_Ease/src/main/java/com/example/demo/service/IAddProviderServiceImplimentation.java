@@ -1,4 +1,6 @@
 package com.example.demo.service;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,4 +19,9 @@ public class IAddProviderServiceImplimentation implements  AddProviderService
 		addr.save(s);
 		
 	}
+	
+	 @Override
+	    public List<AddProviderModel> getAllProviders() {
+	         return addr.findAll();
+	    }
 }
