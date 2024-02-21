@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>User Profile</title>
+    <link th:href="@{/css/user-profile.css}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="container">
+        <h1>List of Profiles</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                   <th>First Name</th>
+                    <th>Last Name</th>
+                     <th>Gender</th>
+                      <th>Email Id</th>
+                       <th>Password</th>
+                    <th>DOB</th>
+                    <th>Address</th>
+                    <th>State</th>
+                    <th>City</th>
+                    <th>PinoCode</th>
+                    <th>AadharNumber</th>
+                    
+                </tr>
+            </thead>
+            <body >
+                <tr th:each="ViewProfile : ${ViewProfiles}">
+                    <td th:text="${ViewProfile.firstName}"></td>
+                     <td th:text="${ViewProfile.lastName}"></td>
+                    <td th:text="${ViewProfile.gender}"></td>
+                    <td th:text="${ViewProfile.emailid}"></td>
+                    <td th:text="${ViewProfile.password}"></td>
+                    <td th:text="${ViewProfile.dob}"></td>
+                    <td th:text="${ViewProfile.address}"></td>
+                    <td th:text="${ViewProfile.state}"></td>
+                    <td th:text="${ViewProfile.city}"></td>
+                    <td th:text="${ViewProfile.pincode}"></td>
+                    <td th:text="${ViewProfile.aadharNumber}"></td>
+                    
+                </tr>
+                
+            </body>
+        </table>
+    </div>
+   </body>
+    </html>
+                               
+                                

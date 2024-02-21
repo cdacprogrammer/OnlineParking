@@ -24,17 +24,6 @@ public class ViewProviderController {
         model.addAttribute("providers", viewProviders);
 	        return "ViewProviders";
 	    }
-	    @PostMapping("/edit/")
-		public String  editproductdetails(@ModelAttribute("d1") d1)
-		{
-			ps.addProductDetails(d1);
-			return "redirect:/listProduct";
-		}
-	    
-	    @GetMapping("/delete/{ProviderId}")
-		public String deleteProviderdata(@PathVariable int ProviderId)
-		{
-			ps.deleteproductdata(ProviderId);//method is inside productservice
-			return "redirect:/listProduct";
-		}
+	
+
 }
