@@ -24,7 +24,7 @@ public class ViewProviderController {
         model.addAttribute("providers", viewProviders);
 	        return "ViewProviders";
 	    }
-	    @PostMapping("/edit")
+	    @PostMapping("/edit/")
 		public String  editproductdetails(@ModelAttribute("d1") d1)
 		{
 			ps.addProductDetails(d1);
