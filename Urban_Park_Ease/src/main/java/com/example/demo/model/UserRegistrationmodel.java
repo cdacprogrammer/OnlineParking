@@ -3,14 +3,18 @@ package com.example.demo.model;
 import java.sql.Date;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 @Entity
 public class UserRegistrationmodel {
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+    private Long userId;
 	    String firstName;
 	    String lastName;
 	    String gender;
-	    String email_Id;
+	    String email;
 	    String password;
 	    Date   dob;
 	    String address;
@@ -18,6 +22,12 @@ public class UserRegistrationmodel {
 	    String city;
 	    int pincode;
 	    String aadharNumber;
+		public Long getUserId() {
+			return userId;
+		}
+		public void setUserId(Long userId) {
+			this.userId = userId;
+		}
 		public String getFirstName() {
 			return firstName;
 		}
@@ -36,11 +46,11 @@ public class UserRegistrationmodel {
 		public void setGender(String gender) {
 			this.gender = gender;
 		}
-		public String getEmail_Id() {
-			return email_Id;
+		public String getEmail() {
+			return email;
 		}
-		public void setEmail_Id(String email_Id) {
-			this.email_Id = email_Id;
+		public void setEmail(String email) {
+			this.email = email;
 		}
 		public String getPassword() {
 			return password;
@@ -84,7 +94,13 @@ public class UserRegistrationmodel {
 		public void setAadharNumber(String aadharNumber) {
 			this.aadharNumber = aadharNumber;
 		}
+		public String getRole() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
 	    
+	
 	    
 
 }

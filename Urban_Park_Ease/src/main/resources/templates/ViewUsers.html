@@ -1,18 +1,13 @@
-
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.84.0">
     <title>Admin Dash Board</title>
+
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
 	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Bootstrap core CSS -->
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
       .bd-placeholder-img {
@@ -30,6 +25,7 @@
       }
     </style>
   </head>
+ 
   <body>
     
 <header>
@@ -49,7 +45,7 @@
             </div>
         </li>          
         <li class="nav-item">
-            <a class="nav-link" th:href="@{/bookings}">Bookings</a>
+            <a class="nav-link" th:href="@{/userings}">Bookings</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" th:href="@{/viewUsers}">Users</a>
@@ -63,13 +59,43 @@
             <a class="nav-link" aria-current="page" th:href="@{/adminProfile}">My Profile</a>
           </li>
           <li class="nav-item dropdown ms-auto">
-            <a href="#" class="nav-link dropdown-toggle">Logout</a>
+            <a th:href="@{/userlogout}" class="nav-link dropdown-toggle">Logout</a>
         </li>
     </ul>       
       </div>
     </div>
   </nav>
 </header>
+
+ <div class="container">
+        <h1>User List</h1>
+        <table class="table">
+            <thead>
+                 <tr>
+		            <th>ID</th>
+		            <th>First Name</th>
+		            <th>Last Name</th>
+		            <th>Gender</th>
+		            <th>Email Id</th>
+		            <th>AAdhar Number</th>	            
+		        </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user : ${ViewUserList}">
+                    <td th:text="${user.userId}"></td>
+                    <td th:text="${user.firstName}"></td>
+                    <td th:text="${user.lastName}"></td>
+                    <td th:text="${user.gender}"></td>
+                    <td th:text="${user.email_Id}"></td>
+                    <td th:text="${user.aadharNumber}"></td>               
+                    <td>
+                        <a th:href="@{/delete/{id}(id=${user.userId})}" class="btn btn-danger">Delete</a>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </body>
 </html>

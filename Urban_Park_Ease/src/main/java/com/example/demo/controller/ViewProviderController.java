@@ -16,6 +16,7 @@ public class ViewProviderController {
 	   ProviderService providerService;
 
 	    @GetMapping("/viewProviders")
+	    
 	    public String getUsers(Model model) {
         List<ProviderModel> viewProviders = providerService.getAllProviders();
         model.addAttribute("providers", viewProviders);

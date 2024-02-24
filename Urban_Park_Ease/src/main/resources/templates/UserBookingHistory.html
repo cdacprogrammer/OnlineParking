@@ -51,7 +51,7 @@
             <a class="nav-link" href="#ContactUs">Check Availability</a>
           </li>  
           <li class="nav-item">
-            <a class="nav-link" th:href="@{/viewUserBooking}">Booking History</a>
+            <a class="nav-link" href="#"th:href="@{/viewUserBooking}">Booking History</a>
           </li> 
            <li class="nav-item">
             <a class="nav-link" th:href="@{/slotPage}">slots</a>
@@ -71,5 +71,46 @@
   </nav>
 </header>
 
+<div class="container">
+        <h1>Booking List</h1>
+        <table class="table">
+            <thead>
+                 <tr>
+		            <th>ID</th>
+		            <th>First Name</th>
+		            <th>Last Name</th>
+		            <th>Parking Name</th>
+		            <th>Vehicle Type</th>
+		            <th>Vehicle Number</th>
+		            <th>Selected Slot</th>
+		            <th>From Booking Date</th>
+		            <th>To Booking Date</th>
+		            <th>From Time</th>
+		            <th>To Time</th>
+		            <th>Mobile No.</th>
+		        </tr>
+            </thead>
+            <tbody>
+                <tr th:each="book : ${bookingList}">
+                    <td th:text="${book.bookingId}"></td>
+                    <td th:text="${book.firstName}"></td>
+                    <td th:text="${book.lastName}"></td>
+                    <td th:text="${book.parkingName}"></td>
+                    <td th:text="${book.vehicleType}"></td>
+                    <td th:text="${book.vehicleNumber}"></td>
+                    <td th:text="${book.selectSlot}"></td>
+                    <td th:text="${book.fromBookingDate}"></td>
+                    <td th:text="${book.toBookingDate}"></td>
+                    <td th:text="${book.fromTime}"></td>
+                    <td th:text="${book.toTime}"></td>
+                    <td th:text="${book.phoneNumber}"></td>
+                    <td>
+                        <a th:href="@{/deletes/{bid}(bid=${book.bookingId})}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
 </body>
 </html>

@@ -20,11 +20,11 @@
       
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
       
-      <form th:action="@{/addUserLoginData}" th:object="${userLoginData}" method="post">
+      <form th:action="@{/userLoginFormP}" th:object="${userLoginData}" method="post">
       
       	<div class="form-outline mb-4">
-            <input type="text" id="form1Example13" class="form-control form-control-lg" th:field ="*{username}"/>
-            <label class="form-label" for="form1Example13" style="color:White;">User Name</label>
+            <input type="email" id="form1Example13" class="form-control form-control-lg" th:field ="*{email}"/>
+            <label class="form-label" for="form1Example13" style="color:White;">User Email</label>
           </div>
 
           <!-- Password input -->
@@ -40,9 +40,13 @@
             </div>
             <a href="#!">Forgot password?</a>
           </div>
-
+			
+			 <div th:if="${error}" class="text-danger">[[${error}]]</div>
+			 
           <!-- Submit button -->
           <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+          
+             </form>
 
           <div class="divider d-flex align-items-center my-4">
             <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
@@ -56,7 +60,7 @@
             role="button">
             <i class="fab fa-twitter me-2"></i>Continue with Twitter</a>
           
-      </form>
+   
       </div>
       
     </div>
