@@ -28,4 +28,8 @@ public class BookingServiceImplementation implements BookingService{
     public void deleteBookingById(Long id) {
 		ad.deleteById(id);
     }
+	@Override
+	public List<BookingModel> getUserBookings(String userEmail) {
+		return ad.findByEmail(userEmail);
+	}
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.model.BookingModel;
 import com.example.demo.model.ProviderModel;
 import com.example.demo.model.UserRegistrationmodel;
 import com.example.demo.repository.ProviderRepository;
@@ -46,13 +47,12 @@ public class UserRegistrationServiceImplementation implements UserRegistrationSe
 		 return userRegRepo.findByEmail(email);
 	}
 
-//	@Override
-//	public UserRegistrationmodel findByUsername(String username) {
-//		// TODO Auto-generated method stub
-//		return null;
-//	}
-
-	
+	@Override
+	public List<UserRegistrationmodel> getUserProfile(String email) {
+		return userRegRepo.findUserByEmail(email);
+		
 	}
+	
+}
 
 

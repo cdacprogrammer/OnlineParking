@@ -13,4 +13,6 @@ public interface BookingService {
 	List<BookingModel> getAllBookings();
 
 	void deleteBookingById(Long id);
+	
+	List<BookingModel> getUserBookings(String userEmail);
 }

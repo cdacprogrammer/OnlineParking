@@ -17,7 +17,7 @@ public class BookingModel {
     String lastName;
     String vehicleType;
     String vehicleNumber;
-    String emailId;
+    String email;
     String phoneNumber;
     String parkingName;
     String selectSlot;
@@ -55,11 +55,11 @@ public class BookingModel {
 	public void setVehicleNumber(String vehicleNumber) {
 		this.vehicleNumber = vehicleNumber;
 	}
-	public String getEmailId() {
-		return emailId;
+	public String getEmail() {
+		return email;
 	}
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getPhoneNumber() {
 		return phoneNumber;
