@@ -28,7 +28,7 @@ public class SlotController {
 	 @Autowired
 	    private SlotService slotService;
 
-	    @GetMapping("/slots")
+	    @GetMapping("/slotPage")
 	    public String getSlotsForm(Model model) {
 	        return "Slot";
 	    }

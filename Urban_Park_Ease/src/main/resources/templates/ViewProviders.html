@@ -63,7 +63,7 @@ data Successful Stored!
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" th:href="@{/adminHome}" >Home</a>
           </li>
            <li class="nav-item dropdown ms-auto">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">ManageProvider</a>
@@ -87,14 +87,13 @@ data Successful Stored!
             <a class="nav-link" aria-current="page" th:href="@{/adminProfile}">My Profile</a>
           </li>
           <li class="nav-item dropdown ms-auto">
-            <a href="#" class="nav-link dropdown-toggle">Logout</a>
+            <a th:href="@{/userlogout}" class="nav-link dropdown-toggle">Logout</a>
         </li>
     </ul>       
       </div>
     </div>
   </nav>
 </header>
-
  <div class="container">
         <h1>List of Providers</h1>
         <table class="table">
@@ -105,6 +104,7 @@ data Successful Stored!
                     <th>Address</th>
                     <th>Slot Capacity</th>
                     <th>Mobile Number</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -116,7 +116,7 @@ data Successful Stored!
                     <td th:text="${provider.mobile}"></td>
                     <td>
                         <a class="btn btn-primary">Edit</a>
-                        <a class="btn btn-danger">Delete</a>
+                        <a th:href="@{/deleteProvider/{id}(id=${provider.providerId})}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             </tbody>

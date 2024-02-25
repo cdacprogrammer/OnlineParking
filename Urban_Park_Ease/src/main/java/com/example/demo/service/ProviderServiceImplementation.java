@@ -1,5 +1,6 @@
 package com.example.demo.service;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,4 +25,16 @@ public class ProviderServiceImplementation implements  ProviderService
 	    public List<ProviderModel> getAllProviders() {
 	         return addr.findAll();
 	    }
+
+	@Override
+	public void deleteProviderById(Long id) {
+		addr.deleteById(id);
+		
+	}
+
+	@Override
+	public ProviderModel getProviderById(Long id) {
+		Optional<ProviderModel> providerOptional = addr.findById(id);
+        return providerOptional.orElse(null);
+        }
 }

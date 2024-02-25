@@ -27,15 +27,14 @@
   </head>
  
   <body>
-    
-<header>
+ <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">AdminDashBoard</a>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav me-auto mb-2 mb-md-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" th:href="@{/adminHome}" >Home</a>
           </li>
            <li class="nav-item dropdown ms-auto">
             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">ManageProvider</a>
@@ -45,7 +44,7 @@
             </div>
         </li>          
         <li class="nav-item">
-            <a class="nav-link" th:href="@{/userings}">Bookings</a>
+            <a class="nav-link" th:href="@{/bookings}">Bookings</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" th:href="@{/viewUsers}">Users</a>
@@ -86,10 +85,10 @@
                     <td th:text="${user.firstName}"></td>
                     <td th:text="${user.lastName}"></td>
                     <td th:text="${user.gender}"></td>
-                    <td th:text="${user.email_Id}"></td>
+                    <td th:text="${user.email}"></td>
                     <td th:text="${user.aadharNumber}"></td>               
                     <td>
-                        <a th:href="@{/delete/{id}(id=${user.userId})}" class="btn btn-danger">Delete</a>
+                        <a th:href="@{/deleteUser/{id}(id=${user.userId})}" class="btn btn-danger">Delete</a>
 
                     </td>
                 </tr>

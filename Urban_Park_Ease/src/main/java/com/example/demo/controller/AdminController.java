@@ -77,5 +77,10 @@ public class AdminController {
   {
 		 return "AdminProfile";
 	 }
+   
+   @GetMapping("/adminHome")
+   public String AdminHomePage(Model m) {
+	   return "AdminDashBoard";
+   }
 
 }

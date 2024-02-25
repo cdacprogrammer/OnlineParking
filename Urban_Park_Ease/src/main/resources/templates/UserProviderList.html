@@ -69,5 +69,33 @@
   </nav>
 </header>
 
+ <div class="container">
+        <h1>List of Providers</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Provider Id</th>
+                    <th>Provider Name</th>
+                    <th>Address</th>
+                    <th>Slot Capacity</th>
+                    <th>Mobile Number</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="provider : ${providersForUser}">
+                    <td th:text="${provider.providerId}"></td>
+                    <td th:text="${provider.providerName}"></td>
+                    <td th:text="${provider.address}"></td>
+                    <td th:text="${provider.slotCapacity}"></td>
+                    <td th:text="${provider.mobile}"></td>
+                    <td>
+                        <a th:href="@{/passProviderName/{pid}(pid=${provider.providerId})}" class="btn btn-danger">Book</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
 </body>
 </html>

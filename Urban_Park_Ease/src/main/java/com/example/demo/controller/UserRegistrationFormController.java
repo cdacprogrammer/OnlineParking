@@ -31,17 +31,18 @@ public class UserRegistrationFormController
 	
 	  
     @GetMapping("/viewUsers")
-    public String ViewUsersmethod(Model m) {
+    public String ViewUsers(Model m) {
     	
     	List<UserRegistrationmodel> VU = userRegService.getAllUsers();
     	m.addAttribute("ViewUserList",VU);
     	return "ViewUsers";
     }
     
-    @GetMapping("/delete/{id}")
-    public String deleteUser(@PathVariable("id") Long id) {
+    @GetMapping("/deleteUser/{id}")
+    public String deleteUser(@PathVariable("id") Long id,Model m) {
     	userRegService.deleteUserById(id);
-        return "Success";
+    	ViewUsers(m);
+      return "ViewUsers";
     }
 	
 	@PostMapping("/UserRegistrationdata")	

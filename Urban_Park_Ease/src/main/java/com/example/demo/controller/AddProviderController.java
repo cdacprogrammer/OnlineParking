@@ -19,26 +19,10 @@ import com.example.demo.service.SlotService;
 @Controller
 public class AddProviderController 
 {
-	@Autowired
-	ProviderService add;
-	@Autowired SlotService slotService;
-//	IAddProviderRepository add;
+//	@Autowired
+//	ProviderService add;
+//	@Autowired SlotService slotService;
+////	IAddProviderRepository add;
+//	
 	
-	@GetMapping("/addProvider")
-	public String addProvider(Model m) 
-	{
-		ProviderModel ad= new ProviderModel();
-		m.addAttribute("Aprovidrform",ad);
-		return "AddProviderform";
-	}
-	
-	
-	@PostMapping("/Addproviderdata") 
-	public String AddProviderDatamethod(@ModelAttribute ("Aprovidrform")ProviderModel Aproviderform, Model m )
-	{ 
-		add.saveProvider(Aproviderform); 
-	 List<Slot> slots = slotService.createSlots(Aproviderform.getSlotCapacity());
-    m.addAttribute("slots", slots);
-    return "Slot";
-	}
 }

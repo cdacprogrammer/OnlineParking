@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties.Authentication;
@@ -19,6 +20,7 @@ import com.example.demo.model.ProviderModel;
 import com.example.demo.model.UserRegistrationmodel;
 import com.example.demo.repository.IUserRegistrationRepository;
 import com.example.demo.service.BookingService;
+import com.example.demo.service.ProviderService;
 import com.example.demo.service.UserRegistrationService;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -26,7 +28,6 @@ import jakarta.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -36,8 +37,12 @@ public class BookingController {
 
 	@Autowired
 	BookingService bs;
+	
+	@Autowired
+	ProviderService providerService;
+	
+	@Autowired
 	UserRegistrationService userService;
-	IUserRegistrationRepository userRepo;
 	
 	@GetMapping("/SlotBookingPage")
 	public String Booking(Model m) 
@@ -62,12 +67,40 @@ public class BookingController {
 	  ViewBooking(m);
 	      return "ViewBookings";
 	  }
+	  
+	  @GetMapping("/deleteUserBooking/{bid}")
+	  public String deleteUserBooking(@PathVariable("bid") Long id,Model m,HttpServletRequest r, HttpSession s) {
+		  bs.deleteBookingById(id);
+		  ViewUserBooking(m,r,s);
+		      return "UserBookingHistory";
+		  }
 	
+	  @GetMapping("/userHomePage")
+	  public String UserHomePage(Model m) {
+	      return "UserDashBoard";
+	  }
+	  
+	  @GetMapping("/passProviderName/{pid}")
+	  public String BookSlotByGivenProviderId(@PathVariable("pid") Long id,Model m,HttpServletRequest r, HttpSession s )
+	  {
+		  String userEmail = (String) s.getAttribute("userEmail");
+		    UserRegistrationmodel userDetails = userService.findByEmail(userEmail);
+		    m.addAttribute("userDetail", userDetails);
+	 
+	    ProviderModel viewProvidersForUser = providerService.getProviderById(id);
+        m.addAttribute("providersForUser", viewProvidersForUser);
+	        BookingModel ad= new BookingModel();
+			m.addAttribute("ConfirmSlot",ad);
+	       
+		  return "SlotBooking";
+	  }
+	  
 	@PostMapping("/BookingSlotData")
-	public String AddBookingData(@ModelAttribute ("ConfirmSlot")BookingModel ConfirmSlot ) 
+	public String AddBookingData(@ModelAttribute ("ConfirmSlot")BookingModel ConfirmSlot,Model m,HttpServletRequest r, HttpSession s ) 
 	{
 		bs.saveBookingData(ConfirmSlot);
-		return "UserDashBoard";
+		ViewUserBooking(m,r,s);
+		return "UserBookingHistory";
 	}
 		
 	@RequestMapping("/viewUserBooking")
@@ -80,4 +113,6 @@ public class BookingController {
 	    
 		return "UserBookingHistory";
 	}
+	
+	
 }
