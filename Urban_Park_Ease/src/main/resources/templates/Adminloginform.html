@@ -10,7 +10,7 @@
 </head>
 <body>
  
- <section class="vh-100 bg-dark">
+<section class="vh-100 bg-dark">
   <div class="container py-5 h-100 ">
   <h3 class="mb-3 text-uppercase" style="color:White; text-weight:bold; margin-left:110px;">Admin Login</h3>
     <div class="row d-flex align-items-center justify-content-center h-100">
@@ -22,11 +22,11 @@
       
               <form th:action="@{/login}" th:object="${user}" method="post">
         <div class="form-group">
-            <label>Email:</label>
+            <label class="form-label" for="form1Example13" style="color:White;">Email:</label>
             <input type="email" class="form-control" th:field="*{email}" >
         </div>
         <div class="form-group">
-            <label>Password:</label>
+            <label class="form-label" for="form1Example13" style="color:White;">Password:</label>
             <input type="password" class="form-control" th:field="*{password}">
         </div>
         
@@ -38,7 +38,7 @@
           <div class="divider d-flex align-items-center my-4">
             <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p>
           </div>
-
+ 
           <a class="btn btn-primary btn-lg btn-block" style="background-color: #3b5998" href="#!"
             role="button">
             <i class="fab fa-facebook-f me-2"></i>Continue with Facebook
@@ -46,12 +46,12 @@
           <a class="btn btn-primary btn-lg btn-block" style="background-color: #55acee" href="#!"
             role="button">
             <i class="fab fa-twitter me-2"></i>Continue with Twitter</a>
-
+ 
         
       </div>
     </div>
   </div>
 </section>
-
+ 
 </body>
 </html>

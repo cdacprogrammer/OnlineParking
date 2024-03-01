@@ -22,6 +22,10 @@
           font-size: 3.5rem;
         }
       }
+      
+       img {
+            border-radius: 10px; /* You can adjust the value as needed */
+        }
     </style>
 
     
@@ -43,9 +47,6 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" th:href="@{/userHomePage}">Home</a>
           </li>     
-         <li class="nav-item">
-            <a class="nav-link" th:href="@{/SlotBookingPage}">Book Slot</a>
-          </li>
           <li class="nav-item">
             <a class="nav-link" th:href="@{/viewProviderForBooking}">Check Availability</a>
           </li>  
@@ -69,35 +70,55 @@
   </nav>
 </header>
 
- <div class="container">
-        <h1>User List</h1>
-        <table class="table">
-            <thead>
-                 <tr>
-		            <th>ID</th>
-		            <th>First Name</th>
-		            <th>Last Name</th>
-		            <th>Gender</th>
-		            <th>Email Id</th>
-		            <th>AAdhar Number</th>	            
-		        </tr>
-            </thead>
-            <tbody>
-                <tr th:each="user : ${userProfile}">
-                    <td th:text="${user.userId}"></td>
-                    <td th:text="${user.firstName}"></td>
-                    <td th:text="${user.lastName}"></td>
-                    <td th:text="${user.gender}"></td>
-                    <td th:text="${user.email}"></td>
-                    <td th:text="${user.aadharNumber}"></td>               
-                    <td>
-                        <a th:href="@{/delete/{id}(id=${user.userId})}" class="btn btn-danger">Delete</a>
 
-                    </td>
-                </tr>
-            </tbody>
+ <section class="vh-100 bg-light">
+  <div class="container py-5 h-100 ">
+ 
+    <div class="row d-flex align-items-center justify-content-center h-100">
+    
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img th:src="@{/images/user.jpg}" alt="Example Image" widht="400px" height="500px">
+      </div>
+      
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+
+        <table class="table">
+        	<thead>
+        		<tr th:each="user : ${userProfile}" >
+        			<th scope="row">User ID</th>
+        			<td th:text="${user.userId}"></td>
+        		</tr>
+        		<tr th:each="user : ${userProfile}">
+        			<th scope="row">First Name</th>
+        			<td th:text="${user.firstName}"></td>
+        		</tr>
+        		<tr th:each="user : ${userProfile}">
+        			<th scope="row">Last Name</th>
+        			<td th:text="${user.lastName}"></td>
+        		</tr>
+        		<tr th:each="user : ${userProfile}">
+        			<th scope="row">Gender</th>
+        			<td th:text="${user.gender}"></td>
+        		</tr>
+        		<tr th:each="user : ${userProfile}">
+        			<th scope="row">Email Id</th>
+        			<td th:text="${user.email}"></td>
+        		</tr>
+        		<tr th:each="user : ${userProfile}">
+        			<th scope="row">Aadhar Number</th>
+        			<td th:text="${user.aadharNumber}"></td>
+        		</tr>
+        		
+        	</thead>
+        	
         </table>
+<div th:each="user : ${userProfile}">
+        			<a th:href="@{/delete/{id}(id=${user.userId})}" class="btn btn-danger">Delete my Account</a>
+        		</div>
     </div>
+    </div>
+    </div>
+    </section>
 
 </body>
 </html>

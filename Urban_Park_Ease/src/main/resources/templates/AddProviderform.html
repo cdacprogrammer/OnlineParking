@@ -79,7 +79,10 @@
           class="img-fluid" alt="Phone image">
       </div>
       <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
-      
+          <div th:if="${message}" class="alert alert-success text-center">
+          	[[${message}]]
+          </div>
+          
           <form th:action="@{/Addproviderdata}" th:object="${Aprovidrform}" method="post">
           
           
@@ -95,7 +98,7 @@
           </div>
           
           <div class="form-outline mb-4">
-           <input type="text" id="numberOfSlots" name="numberOfSlots" min="1" class="form-control form-control-lg" th:field ="*{slotCapacity}"/>
+           <input type="number" id="numberOfSlots" name="numberOfSlots" min="1" class="form-control form-control-lg" th:field ="*{slotCapacity}"/>
             <label class="form-label" for="form1Example13" style="color:White;">SlotCapacity</label>
           </div>
 

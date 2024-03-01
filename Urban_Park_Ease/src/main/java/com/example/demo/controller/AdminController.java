@@ -12,10 +12,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.model.AddAdminRegistration;
 import com.example.demo.model.BookingModel;
+import com.example.demo.model.LoginForm;
 import com.example.demo.model.UserRegistrationmodel;
 import com.example.demo.repository.AdminRepository;
 import com.example.demo.service.AdminService;
 import com.example.demo.service.UserRegistrationService;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class AdminController {
@@ -37,16 +41,23 @@ public class AdminController {
 
 
     @PostMapping("/login")
-    public String loginSubmit(@ModelAttribute ("user") AddAdminRegistration user, Model model ) {
+    public String loginSubmit(@ModelAttribute ("user") AddAdminRegistration user, Model model,
+    		 LoginForm form, HttpServletRequest request, HttpSession session) 
+    {
+    	session.invalidate();
+    	HttpSession newAdminSession = request.getSession(true);
+    	String adminEmail = form.getEmail();
+    	newAdminSession.setAttribute("adminEmail", adminEmail);
+    	
     	AddAdminRegistration existingUser = adminService.findByEmail(user.getEmail());
         if (existingUser != null && existingUser.getPassword().equals(user.getPassword()))
-        {   return "AdminDashBoard"; // Redirect to dashboard
+        {  
+        	return "AdminDashBoard"; // Redirect to dashboard
         }
-        
-                else {
+        else {
             model.addAttribute("error", "Invalid email or password");
-           return "Adminloginform"; // Return to login form with error message
-                }
+            return "Adminloginform"; // Return to login form with error message
+             }
 	
     }
     
@@ -56,15 +67,7 @@ public class AdminController {
         model.addAttribute("AdminRegdata", new AddAdminRegistration());
         return "AddAdmin";
     }
-    
-//   @PostMapping("/addadmindata")
-//   
-//   public String addAdmindatamethod(@ModelAttribute ("adminForm") AddAdminRegistration addAdminReg) 
-//   {
-//	   adminService.saveAdminUser(addAdminReg);
-//	   return "AdminDashBoard";
-//   }
-   
+     
    @PostMapping("/AdminRegistration")
    public String AddAdminRegForm(@ModelAttribute ("AdminRegdata") AddAdminRegistration AdminRegdata)
    {
@@ -73,8 +76,11 @@ public class AdminController {
    }
    
    @GetMapping("/adminProfile")
-	 public String adminProfile(Model m) 
+	 public String adminProfile(Model m, HttpServletRequest request, HttpSession session) 
   {
+	   String adminEmail = (String) session.getAttribute("adminEmail");
+	    List<AddAdminRegistration> adminProfile = adminService.getAdminProfile(adminEmail);
+	    m.addAttribute("adminProfile", adminProfile);
 		 return "AdminProfile";
 	 }
    

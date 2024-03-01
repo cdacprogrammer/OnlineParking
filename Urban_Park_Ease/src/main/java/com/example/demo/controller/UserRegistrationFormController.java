@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.model.UserRegistrationmodel;
 import com.example.demo.service.UserRegistrationService;
+
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 @Controller
 public class UserRegistrationFormController 
 
@@ -43,6 +46,13 @@ public class UserRegistrationFormController
     	userRegService.deleteUserById(id);
     	ViewUsers(m);
       return "ViewUsers";
+    }
+    
+    @GetMapping("/delete/{id}")
+    public String deleteUserfromUserProfile(@PathVariable("id") Long id,Model m, HttpServletRequest request, HttpSession session) {
+    	userRegService.deleteUserById(id);
+    	session.invalidate();
+    	return "index";
     }
 	
 	@PostMapping("/UserRegistrationdata")	

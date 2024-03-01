@@ -1,18 +1,4 @@
-<!-- <!DOCTYPE html>
 <html xmlns:th ="http://www.thymeleaf.org">
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
-data Successful Stored!
-<p th:text="${adminForm.username}"><br>
-<p th:text="${adminForm.password}"><br>
-</body>
-</html> -->
-
-
-<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -94,8 +80,18 @@ data Successful Stored!
     </div>
   </nav>
 </header>
+
+<section class="vh-100 bg-light">
+  <div class="container py-5 h-100 ">
+ 
+ 
+    <div class="row d-flex align-items-center justify-content-center h-100">
+    
  <div class="container">
-        <h1>List of Providers</h1>
+       <div>
+       	  <h3 class="mb-3 text-uppercase" style="color:black; text-weight:bold; border:5px solid darkgreen; 
+       	  padding:10px; text-align:center;">Provider List</h3>
+       </div>
         <table class="table">
             <thead>
                 <tr>
@@ -115,13 +111,20 @@ data Successful Stored!
                     <td th:text="${provider.slotCapacity}"></td>
                     <td th:text="${provider.mobile}"></td>
                     <td>
-                        <a class="btn btn-primary">Edit</a>
+                       <!--  <a class="btn btn-primary">Edit</a> -->
+                        <a th:href="@{/editProvider/{id}(id=${provider.providerId})}" class="btn btn-primary" >
+  							Edit
+						</a>
                         <a th:href="@{/deleteProvider/{id}(id=${provider.providerId})}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             </tbody>
         </table>
-    </div>
+            
+    </div>  
 
+</div>
+</div>
+</section>
 </body>
 </html>

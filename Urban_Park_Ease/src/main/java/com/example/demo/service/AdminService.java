@@ -17,6 +17,8 @@ public interface AdminService
 
 	void saveAdminUser(AddAdminRegistration addAdminReg);
 
+	List<AddAdminRegistration> getAdminProfile(String email);
+
 	
 
 }

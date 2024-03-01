@@ -37,4 +37,10 @@ public class ProviderServiceImplementation implements  ProviderService
 		Optional<ProviderModel> providerOptional = addr.findById(id);
         return providerOptional.orElse(null);
         }
+
+	@Override
+	public Optional<ProviderModel> getProviderForEdit(Long id) {
+		// TODO Auto-generated method stub
+		return addr.findById(id);
+	}
 }

@@ -15,6 +15,9 @@ public interface ProviderService {
 	void deleteProviderById(Long id);
 
 	ProviderModel getProviderById(Long id);
+	
+	
+	Optional<ProviderModel> getProviderForEdit(Long id);
 
 }
 

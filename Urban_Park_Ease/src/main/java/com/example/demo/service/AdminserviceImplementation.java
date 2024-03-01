@@ -39,4 +39,9 @@ public class AdminserviceImplementation implements AdminService
 	    public AddAdminRegistration findByEmail(String email) {
 	        return ad.findByEmail(email);
 	    }
+
+	@Override
+	public List<AddAdminRegistration> getAdminProfile(String email) {
+		   return ad.findAdminByEmail(email);
+	}
 }

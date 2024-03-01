@@ -41,8 +41,9 @@ public class UserController {
     }
 		
 	@GetMapping("/userlogout")
-	public String userLogout(Model m) 
+	public String userLogout(Model m, HttpServletRequest request, HttpSession session) 
 	{
+		session.invalidate();
 		return "index";
 		
 	}
