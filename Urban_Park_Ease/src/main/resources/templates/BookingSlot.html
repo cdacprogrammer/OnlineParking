@@ -1,0 +1,91 @@
+	<!DOCTYPE html>
+	<html xmlns:th ="http://www.thymeleaf.org" lang="en">
+	<head >
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <title>Parking Booking Form</title>
+	  <!-- Bootstrap CSS -->
+	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	  <!-- Bootstrap Datepicker CSS (if used) -->
+	  <!-- Bootstrap Timepicker CSS (if used) -->
+	</head>
+	<body>
+	<!--.<img src="123.jpg" class="img-fluid"> -->
+	    
+	<div class="container mt-5">
+	  <h2 class="mb-4">Parking Booking Form</h2>
+	      <form th:action="@{/BookingSlotData}" th:object="${ConfirmSlot}" method="post">
+		    <div class="form-row">
+	      <div class="form-group col-md-6">
+	        <label for="firstName">First Name</label>
+	        <input type="text" class="form-control" id="firstName" name="firstName" th:field ="*{firstName}" /> 
+	      </div>
+	      <div class="form-group col-md-6">
+	        <label for="lastName">Last Name</label>
+	        <input type="text" class="form-control" id="lastName" name="lastName" th:field ="*{lastName}"/>
+	      </div>
+	    </div>
+	    <div class="form-row">
+	      <div class="form-group col-md-6">
+	        <label for="vehicleType">Vehicle Type</label>
+	        <input type="text" class="form-control" id="vehicleType" name="vehicleType" th:field ="*{vehicleType}"/>
+	      </div>
+	      <div class="form-group col-md-6">
+	        <label for="vehicleNumber">Vehicle Number</label>
+	        <input type="text" class="form-control" id="vehicleNumber" name="vehicleNumber" th:field ="*{vehicleNumber}"/>
+	      </div>
+	    </div>
+	    <div class="form-row">
+	      <div class="form-group col-md-6">
+	        <label for="email">Email</label>
+	        <input type="emailId" class="form-control" id="email" name="emailId" th:field ="*{emailId}"/>
+	      </div>
+	      <div class="form-group col-md-6">
+	        <label for="phoneNumber">Phone Number</label>
+	        <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" th:field ="*{phoneNumber}"/>
+	      </div>
+	    </div>
+	    <div class="form-row">
+	      <div class="form-group col-md-6">
+	        <label for="parkingName">Parking Name</label>
+	        <input type="text" class="form-control" id="parkingName" name="parkingName" th:field ="*{parkingName}"/>
+	      </div>
+	      <div class="form-group col-md-6">
+	        <label for="selectSlot">Select Slot</label>
+	        <input type="text" class="form-control" id="selectSlot" name="selectSlot" th:field ="*{selectSlot}"/>
+	      </div>
+	    </div>
+	    <div class="form-row">
+	      <div class="form-group col-md-6">
+	        <label for="fromBookingDate">From Booking Date</label>
+	        <input type="date" class="form-control" id="fromBookingDate" name="fromBookingDate" th:field ="*{fromBookingDate}"/>
+	      </div>
+	      <div class="form-group col-md-6">
+	        <label for="toBookingDate">To Booking Date</label>
+	        <input type="date" class="form-control" id="toBookingDate" name="toBookingDate" th:field ="*{toBookingDate}"/>
+	      </div>
+	    </div>
+	    <div class="form-row">
+	      <div class="form-group col-md-6">
+	        <label for="fromTime">From Time</label>
+	        <input type="time" class="form-control" id="fromTime" name="fromTime" th:field ="*{fromTime}"/>
+	      </div>
+	      <div class="form-group col-md-6">
+	        <label for="toTime">To Time</label>
+	        <input type="time" class="form-control" id="toTime" name="toTime" th:field ="*{toTime}"/>
+	      </div>
+	    </div>
+	    <button type="submit" class="btn btn-primary">Submit</button>
+	  </form>
+	</div>
+	
+	<!-- Bootstrap JS -->
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	
+	<!-- Bootstrap Datepicker JS (if used) -->
+	<!-- Bootstrap Timepicker JS (if used) -->
+	<!-- Your custom JavaScript -->
+	</body>
+	</html>
